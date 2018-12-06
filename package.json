@@ -1,6 +1,6 @@
 {
   "name": "react-native-game-pad",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A game pad component for React Native.",
   "main": "index.js",
   "scripts": {
@@ -17,5 +17,5 @@
     "react-native-game-pad"
   ],
   "author": "James Best",
-  "license": "ISC"
+  "license": "MIT"
 }
