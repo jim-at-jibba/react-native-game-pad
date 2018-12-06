@@ -1,6 +1,7 @@
 # React native game pad (ios + android)
 
-A React Native game pad using nipplejs for an on-screen joystick;
+A React Native game pad using nipplejs for an on-screen joystick
+
 [![NPM](https://nodei.co/npm/react-native-game-pad.png)](https://nodei.co/npm/react-native-game-pad/)
 
 [![npm version](https://badge.fury.io/js/react-native-game-pad.svg)](https://badge.fury.io/js/react-native-game-pad)
