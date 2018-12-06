@@ -25,11 +25,28 @@ import RNGamePad from 'react-native-game-pad';
 ```javascript
 var options = {
   color: String,
-  size: Integer,
-  position: Object, // preset position for 'static' mode
-  restJoystick: Boolean,
-  catchDistance: Number // distance to recycle previous joystick in
+  size: Integer
 };
+```
+
+## Prop
+
+```javascript
+<RNGamePad
+  onStart={this.handleOnStart}
+  onEnd={this.handleOnEnd}
+  onMove={this.handleOnMove}
+  onDir={this.handleOnDir}
+  onPlain={this.handleOnPlain}
+  onButtonAPress={this.handleButtonAPress}
+  buttonAColor="red"
+  onButtonBPress={this.handleButtonBPress}
+  buttonBColor="green"
+  options={{
+    size: 200,
+    color: "red"
+  }}
+/>
 ```
 
 ## TODO:

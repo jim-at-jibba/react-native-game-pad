@@ -1,5 +1,11 @@
 import React from "react";
-import { TouchableOpacity, Text, View, WebView } from "react-native";
+import {
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  View,
+  WebView
+} from "react-native";
 
 const js = options => {
   console.log("OPTIONS", options);
@@ -60,8 +66,13 @@ export default class RNGamePad extends React.Component {
   }
 
   render() {
-    let { color = "green", size = 400 } = this.props.options;
-    let { onButtonBPress, onButtonAPress } = this.props;
+    let { color = "green", size = 200 } = this.props.options;
+    let {
+      onButtonBPress,
+      buttonAColor,
+      onButtonAPress,
+      buttonBColor
+    } = this.props;
     console.log("PROPS", this.props);
 
     var options = {
@@ -82,7 +93,7 @@ export default class RNGamePad extends React.Component {
             injectedJavaScript={js(options)}
           />
         </View>
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: "white" }}>
           <View
             style={{
               flexDirection: "row",
@@ -98,55 +109,25 @@ export default class RNGamePad extends React.Component {
               }}
             >
               <TouchableOpacity
-                style={{
-                  backgroundColor: "red",
-                  height: 90,
-                  width: 90,
-                  borderRadius: 90 / 2,
-                  justifyContent: "center",
-                  alignItems: "center"
-                }}
+                style={[styles.button, { backgroundColor: `${buttonAColor}` }]}
                 onPress={() => onButtonAPress()}
               >
-                <Text
-                  style={{
-                    fontSize: 22,
-                    color: "white",
-                    fontWeight: "700"
-                  }}
-                >
-                  A
-                </Text>
+                <Text style={styles.buttonText}>A</Text>
               </TouchableOpacity>
             </View>
             <View
               style={{
                 flex: 1,
                 justifyContent: "center",
-                alignItems: "center"
+                alignItems: "center",
+                marginRight: 50
               }}
             >
               <TouchableOpacity
-                style={{
-                  backgroundColor: "green",
-                  marginRight: 50,
-                  height: 90,
-                  width: 90,
-                  borderRadius: 90 / 2,
-                  justifyContent: "center",
-                  alignItems: "center"
-                }}
+                style={[styles.button, { backgroundColor: `${buttonBColor}` }]}
                 onPress={() => onButtonBPress()}
               >
-                <Text
-                  style={{
-                    fontSize: 22,
-                    color: "white",
-                    fontWeight: "700"
-                  }}
-                >
-                  B
-                </Text>
+                <Text style={styles.buttonText}>B</Text>
               </TouchableOpacity>
             </View>
           </View>
@@ -155,3 +136,18 @@ export default class RNGamePad extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  button: {
+    height: 90,
+    width: 90,
+    borderRadius: 90 / 2,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  buttonText: {
+    fontSize: 22,
+    color: "white",
+    fontWeight: "700"
+  }
+});
