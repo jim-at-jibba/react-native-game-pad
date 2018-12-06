@@ -11,12 +11,11 @@
     "url": "git+https://github.com/jim-at-jibba/react-native-game-pad",
     "baseUrl": "https://github.com/jim-at-jibba/react-native-game-pad"
   },
-}
-"keywords": [
-  "react-native",
-  "react",
-  "react-native-game-pad"
-],
-"author": "James Best",
-"license": "ISC"
+  "keywords": [
+    "react-native",
+    "react",
+    "react-native-game-pad"
+  ],
+  "author": "James Best",
+  "license": "ISC"
 }
