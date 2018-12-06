@@ -44,8 +44,8 @@ export default class App extends Component<Props> {
         onButtonBPress={this.handleButtonBPress}
         buttonBColor="green"
         options={{
-          size: 200,
-          color: "red"
+          size: 400,
+          color: "blue"
         }}
       />
     );

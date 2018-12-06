@@ -6,6 +6,10 @@ A React Native game pad using nipplejs for an on-screen joystick;
 
 [![npm version](https://badge.fury.io/js/react-native-game-pad.svg)](https://badge.fury.io/js/react-native-game-pad)
 
+<p align="center">
+	<img src ="./example.png" />
+</p>
+
 ## Install
 
 ```
