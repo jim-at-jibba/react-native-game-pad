@@ -40,8 +40,11 @@ export default class App extends Component<Props> {
         onDir={this.handleOnDir}
         onPlain={this.handleOnPlain}
         onButtonAPress={this.handleButtonAPress}
+        buttonAColor="red"
         onButtonBPress={this.handleButtonBPress}
+        buttonBColor="green"
         options={{
+          size: 200,
           color: "red"
         }}
       />
