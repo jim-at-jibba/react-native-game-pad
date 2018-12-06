@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, WebView } from "react-native";
+import { TouchableOpacity, Text, View, WebView } from "react-native";
 
 const js = options => {
   console.log("OPTIONS", options);
@@ -61,6 +61,7 @@ export default class RNGamePad extends React.Component {
 
   render() {
     let { color = "green", size = 400 } = this.props.options;
+    let { onButtonBPress, onButtonAPress } = this.props;
     console.log("PROPS", this.props);
 
     var options = {
@@ -82,7 +83,73 @@ export default class RNGamePad extends React.Component {
           />
         </View>
         <View style={{ flex: 1 }}>
-          <Text>Other buttons</Text>
+          <View
+            style={{
+              flexDirection: "row",
+              height: "100%"
+            }}
+          >
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center",
+                marginLeft: 50
+              }}
+            >
+              <TouchableOpacity
+                style={{
+                  backgroundColor: "red",
+                  height: 90,
+                  width: 90,
+                  borderRadius: 90 / 2,
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+                onPress={() => onButtonAPress()}
+              >
+                <Text
+                  style={{
+                    fontSize: 22,
+                    color: "white",
+                    fontWeight: "700"
+                  }}
+                >
+                  A
+                </Text>
+              </TouchableOpacity>
+            </View>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "center",
+                alignItems: "center"
+              }}
+            >
+              <TouchableOpacity
+                style={{
+                  backgroundColor: "green",
+                  marginRight: 50,
+                  height: 90,
+                  width: 90,
+                  borderRadius: 90 / 2,
+                  justifyContent: "center",
+                  alignItems: "center"
+                }}
+                onPress={() => onButtonBPress()}
+              >
+                <Text
+                  style={{
+                    fontSize: 22,
+                    color: "white",
+                    fontWeight: "700"
+                  }}
+                >
+                  B
+                </Text>
+              </TouchableOpacity>
+            </View>
+          </View>
         </View>
       </View>
     );

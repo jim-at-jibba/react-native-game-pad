@@ -23,6 +23,14 @@ export default class App extends Component<Props> {
     console.log("onPlain", evt, data);
   };
 
+  handleButtonAPress = () => {
+    console.log("Button A");
+  };
+
+  handleButtonBPress = () => {
+    console.log("Button B");
+  };
+
   render() {
     return (
       <RNGamePad
@@ -31,6 +39,8 @@ export default class App extends Component<Props> {
         onMove={this.handleOnMove}
         onDir={this.handleOnDir}
         onPlain={this.handleOnPlain}
+        onButtonAPress={this.handleButtonAPress}
+        onButtonBPress={this.handleButtonBPress}
         options={{
           color: "red"
         }}
