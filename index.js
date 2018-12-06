@@ -60,10 +60,13 @@ export default class RNGamePad extends React.Component {
   }
 
   render() {
+    let { color = "green", size = 400 } = this.props.options;
+    console.log("PROPS", this.props);
+
     var options = {
-      color: "green",
+      color: color,
       mode: "static",
-      size: 400,
+      size,
       position: {
         left: "50%",
         top: "50%"

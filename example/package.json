@@ -18,5 +18,8 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "localDependencies": {
+    "react-native-game-pad": ".."
   }
 }
