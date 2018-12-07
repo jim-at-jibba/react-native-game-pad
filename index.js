@@ -44,8 +44,48 @@ const js = options => {
     })
 
 
+    joystick.on('dir:up', function(evt, data) {
+      let dataToReturn = { type: "onDirUp", event: evt.type, data }
+      window.postMessage(JSON.stringify(dataToReturn));
+    })
+
+    joystick.on('dir:down', function(evt, data) {
+      let dataToReturn = { type: "onDirDown", event: evt.type, data }
+      window.postMessage(JSON.stringify(dataToReturn));
+    })
+
+    joystick.on('dir:left', function(evt, data) {
+      let dataToReturn = { type: "onDirLeft", event: evt.type, data }
+      window.postMessage(JSON.stringify(dataToReturn));
+    })
+
+    joystick.on('dir:right', function(evt, data) {
+      let dataToReturn = { type: "onDirRight", event: evt.type, data }
+      window.postMessage(JSON.stringify(dataToReturn));
+    })
+
     joystick.on('plain', function(evt, data) {
-      let dataToReturn = { type: "onPlain", event: evt.type, data }
+      let dataToReturn = { type: "onPlane", event: evt.type, data }
+      window.postMessage(JSON.stringify(dataToReturn));
+    })
+
+    joystick.on('plain:up', function(evt, data) {
+      let dataToReturn = { type: "onPlaneUp", event: evt.type, data }
+      window.postMessage(JSON.stringify(dataToReturn));
+    })
+
+    joystick.on('plain:down', function(evt, data) {
+      let dataToReturn = { type: "onPlaneDown", event: evt.type, data }
+      window.postMessage(JSON.stringify(dataToReturn));
+    })
+
+    joystick.on('plain:left', function(evt, data) {
+      let dataToReturn = { type: "onPlaneLeft", event: evt.type, data }
+      window.postMessage(JSON.stringify(dataToReturn));
+    })
+
+    joystick.on('plain:right', function(evt, data) {
+      let dataToReturn = { type: "onPlaneRight", event: evt.type, data }
       window.postMessage(JSON.stringify(dataToReturn));
     })
   `;

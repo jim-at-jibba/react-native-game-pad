@@ -19,8 +19,40 @@ export default class App extends Component<Props> {
     console.log("onDir", evt, data);
   };
 
-  handleOnPlain = (evt, data) => {
-    console.log("onPlain", evt, data);
+  handleOnDirUp = (evt, data) => {
+    console.log("onDirUp", evt, data);
+  };
+
+  handleOnDirDown = (evt, data) => {
+    console.log("onDirDown", evt, data);
+  };
+
+  handleOnDirLeft = (evt, data) => {
+    console.log("onDirLeft", evt, data);
+  };
+
+  handleOnDirRight = (evt, data) => {
+    console.log("onDirRight", evt, data);
+  };
+
+  handleOnPlane = (evt, data) => {
+    console.log("onPlane", evt, data);
+  };
+
+  handleOnPlaneUp = (evt, data) => {
+    console.log("onPlaneUp", evt, data);
+  };
+
+  handleOnPlaneDown = (evt, data) => {
+    console.log("onPlaneDown", evt, data);
+  };
+
+  handleOnPlaneLeft = (evt, data) => {
+    console.log("onPlaneLeft", evt, data);
+  };
+
+  handleOnPlaneRight = (evt, data) => {
+    console.log("onPlaneRight", evt, data);
   };
 
   handleButtonAPress = () => {
@@ -38,7 +70,15 @@ export default class App extends Component<Props> {
         onEnd={this.handleOnEnd}
         onMove={this.handleOnMove}
         onDir={this.handleOnDir}
-        onPlain={this.handleOnPlain}
+        onDirUp={this.handleOnDirUp}
+        onDirDown={this.handleOnDirDown}
+        onDirLeft={this.handleOnDirLeft}
+        onDirRight={this.handleOnDirRight}
+        onPlane={this.handleOnPlane}
+        onPlaneUp={this.handleOnPlaneUp}
+        onPlaneDown={this.handleOnPlaneDown}
+        onPlaneLeft={this.handleOnPlaneLeft}
+        onPlaneRight={this.handleOnPlaneRight}
         onButtonAPress={this.handleButtonAPress}
         buttonAColor="red"
         onButtonBPress={this.handleButtonBPress}

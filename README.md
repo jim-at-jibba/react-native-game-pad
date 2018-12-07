@@ -1,6 +1,6 @@
 # React native game pad (ios + android)
 
-A React Native game pad using nipplejs for an on-screen joystick
+A React Native game pad using [nipplejs](https://github.com/yoannmoinet/nipplejs) for an on-screen joystick
 
 [![NPM](https://nodei.co/npm/react-native-game-pad.png)](https://nodei.co/npm/react-native-game-pad/)
 
@@ -43,22 +43,112 @@ var options = {
   onEnd={this.handleOnEnd}
   onMove={this.handleOnMove}
   onDir={this.handleOnDir}
-  onPlain={this.handleOnPlain}
+  onDirUp={this.handleOnDirUp}
+  onDirDown={this.handleOnDirDown}
+  onDirLeft={this.handleOnDirLeft}
+  onDirRight={this.handleOnDirRight}
+  onPlane={this.handleOnPlane}
+  onPlaneUp={this.handleOnPlaneUp}
+  onPlaneDown={this.handleOnPlaneDown}
+  onPlaneLeft={this.handleOnPlaneLeft}
+  onPlaneRight={this.handleOnPlaneRight}
   onButtonAPress={this.handleButtonAPress}
   buttonAColor="red"
   onButtonBPress={this.handleButtonBPress}
   buttonBColor="green"
   options={{
-    size: 200,
-    color: "red"
+    size: 400,
+    color: "blue"
   }}
 />
 ```
 
+## Events
+
+_The following events section has been lifted from the nipplejs repo and altered for this library as they return the same data._
+
+#### `onStart`
+
+A joystick is activated. (the user pressed on the active zone)
+
+Will pass the instance alongside the event.
+
+#### `onEnd`
+
+A joystick is de-activated. (the user released the active zone)
+
+Will pass the instance alongside the event.
+
+#### `onMove`
+
+A joystick is moved.
+
+Comes with data :
+
+```javascript
+{
+    identifier: 0,              // the identifier of the touch/mouse that triggered it
+    position: {                 // absolute position of the center in pixels
+        x: 125,
+        y: 95
+    },
+    force: 0.2,                 // strength in %
+    distance: 25.4,             // distance from center in pixels
+    pressure: 0.1,              // the pressure applied by the touch
+    angle: {
+        radian: 1.5707963268,   // angle in radian
+        degree: 90
+    },
+    instance: Nipple            // the nipple instance that triggered the event
+}
+```
+
+#### `onDir`
+
+When a direction is reached after the threshold.
+
+Direction are split with a 45° angle.
+
+```javascript
+//     \  UP /
+//      \   /
+// LEFT       RIGHT
+//      /   \
+//     /DOWN \
+```
+
+You can also listen to specific direction like :
+
+- `onDirUp`
+- `onDirDown`
+- `onDirLeft`
+- `onDirRight`
+
+In this configuration only one direction is triggered at a time.
+
+#### `onPlane`
+
+When a plain direction is reached after the threshold.
+
+Plain directions are split with a 90° angle.
+
+```javascript
+//       UP               |
+//     ------        LEFT | RIGHT
+//      DOWN              |
+```
+
+You can also listen to specific plain direction like :
+
+- `onPlaneUp`
+- `onPlaneDown`
+- `onPlaneLeft`
+- `onPlaneRight`
+
 ## TODO:
 
-* [ ] allow different pad layouts
-* [ ] Allow different types of joystick. Currently on `static` is supported
+- [ ] allow different pad layouts
+- [ ] Allow different types of joystick. Currently on `static` is supported
 
 ## License
 
