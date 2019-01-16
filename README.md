@@ -184,7 +184,7 @@ You can also listen to specific plain direction like :
 
 ## TODO:
 
-* [ ] allow different pad layouts
+* [x] allow different pad layouts
 * [ ] Allow different types of joystick. Currently on `static` is supported
 * [ ] Break example in to multiple screens
 * [ ] Add test suite
