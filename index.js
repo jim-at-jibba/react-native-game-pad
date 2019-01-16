@@ -6,7 +6,7 @@ import RNGamePadDual from "./components/dual/dual-joystick";
 class RNGamePad extends React.Component {
   renderKeyboard = () => {
     console.log("PROPS", this.props);
-    let { dualJoystick } = this.props;
+    let { dualJoystick = false } = this.props;
     if (dualJoystick) {
       return <RNGamePadDual {...this.props} />;
     }

@@ -10,6 +10,10 @@ A React Native game pad using [nipplejs](https://github.com/yoannmoinet/nipplejs
 	<img src ="./example.png" />
 </p>
 
+<p align="center">
+	<img src ="./dual.png" />
+</p>
+
 ## Install
 
 ```
@@ -20,7 +24,8 @@ npm i react-native-game-pad -S
 
 ## Usage
 
-Import it into your project
+Import it into your project. If you want a dual joystick game pad set `dualJoystick={true}` (defaults to single joystick gamepad).
+The methods for dual joystick events are different. Please refer to the list of props below
 
 ```
 import RNGamePad from 'react-native-game-pad';
@@ -52,13 +57,45 @@ var options = {
   onPlaneDown={this.handleOnPlaneDown}
   onPlaneLeft={this.handleOnPlaneLeft}
   onPlaneRight={this.handleOnPlaneRight}
+  onLeftStart={this.handleLeftOnStart} // methods for handling dual joysticks START
+  onLeftEnd={this.handleLeftOnEnd}
+  onLeftMove={this.handleLeftOnMove}
+  onLeftDir={this.handleLeftOnDir}
+  onLeftDirUp={this.handleLeftOnDirUp}
+  onLeftDirDown={this.handleLeftOnDirDown}
+  onLeftDirLeft={this.handleLeftOnDirLeft}
+  onLeftDirRight={this.handleLeftOnDirRight}
+  onLeftPlane={this.handleLeftOnPlane}
+  onLeftPlaneUp={this.handleLeftOnPlaneUp}
+  onLeftPlaneDown={this.handleLeftOnPlaneDown}
+  onLeftPlaneLeft={this.handleLeftOnPlaneLeft}
+  onLeftPlaneRight={this.handleLeftOnPlaneRight}
+  onRightStart={this.handleRightOnStart}
+  onRightEnd={this.handleRightOnEnd}
+  onRightMove={this.handleRightOnMove}
+  onRightDir={this.handleRightOnDir}
+  onRightDirUp={this.handleRightOnDirUp}
+  onRightDirDown={this.handleRightOnDirDown}
+  onRightDirLeft={this.handleRightOnDirLeft}
+  onRightDirRight={this.handleRightOnDirRight}
+  onRightPlane={this.handleRightOnPlane}
+  onRightPlaneUp={this.handleRightOnPlaneUp}
+  onRightPlaneDown={this.handleRightOnPlaneDown}
+  onRightPlaneLeft={this.handleRightOnPlaneLeft}
+  onRightPlaneRight={this.handleRightOnPlaneRight}
+  onButtonAPress={this.handleButtonAPress}
   onButtonAPress={this.handleButtonAPress}
   buttonAColor="red"
   onButtonBPress={this.handleButtonBPress}
   buttonBColor="green"
+  dualJoystick={true}
   options={{
     size: 400,
     color: "blue"
+  }}
+  options2={{
+    size: 400,
+    color: "red"
   }}
 />
 ```
@@ -119,10 +156,10 @@ Direction are split with a 45° angle.
 
 You can also listen to specific direction like :
 
-- `onDirUp`
-- `onDirDown`
-- `onDirLeft`
-- `onDirRight`
+* `onDirUp`
+* `onDirDown`
+* `onDirLeft`
+* `onDirRight`
 
 In this configuration only one direction is triggered at a time.
 
@@ -140,15 +177,18 @@ Plain directions are split with a 90° angle.
 
 You can also listen to specific plain direction like :
 
-- `onPlaneUp`
-- `onPlaneDown`
-- `onPlaneLeft`
-- `onPlaneRight`
+* `onPlaneUp`
+* `onPlaneDown`
+* `onPlaneLeft`
+* `onPlaneRight`
 
 ## TODO:
 
-- [ ] allow different pad layouts
-- [ ] Allow different types of joystick. Currently on `static` is supported
+* [ ] allow different pad layouts
+* [ ] Allow different types of joystick. Currently on `static` is supported
+* [ ] Break example in to multiple screens
+* [ ] Add test suite
+* [ ] Add X and Y locks
 
 ## License
 
