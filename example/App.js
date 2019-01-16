@@ -213,10 +213,11 @@ export default class App extends Component {
         buttonAColor="red"
         onButtonBPress={this.handleButtonBPress}
         buttonBColor="green"
-        dualJoystick={true}
+        dualJoystick={false}
         options={{
           size: 200,
-          color: "blue"
+          color: "blue",
+          lockY: true
         }}
         options2={{
           size: 200,

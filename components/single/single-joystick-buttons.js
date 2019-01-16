@@ -13,12 +13,14 @@ const js = options => {
     var joystick = nipplejs.create({
       zone: document.getElementById('zone_joystick'),
       color: "${options.color}",
+      lockX: ${options.lockX},
+      lockY: ${options.lockY},
       mode: '${options.mode}',
-          size: ${options.size},
-          position: {
-            left: "${options.position.left}",
-            top: "${options.position.top}"
-          },
+      size: ${options.size},
+      position: {
+        left: "${options.position.left}",
+        top: "${options.position.top}"
+      }
     });
 
     joystick.on('start', function(evt, data) {
@@ -106,7 +108,12 @@ export class RNGamePadSingle extends React.Component {
   }
 
   render() {
-    let { color = "green", size = 200 } = this.props.options;
+    let {
+      color = "green",
+      size = 200,
+      lockX = false,
+      lockY = false
+    } = this.props.options;
     let {
       onButtonBPress,
       buttonAColor,
@@ -122,7 +129,9 @@ export class RNGamePadSingle extends React.Component {
       position: {
         left: "50%",
         top: "50%"
-      }
+      },
+      lockX,
+      lockY
     };
     return (
       <View style={{ flex: 1, flexDirection: "row" }}>
