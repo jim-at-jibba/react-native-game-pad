@@ -91,11 +91,13 @@ var options = {
   dualJoystick={true}
   options={{
     size: 400,
-    color: "blue"
+    color: "blue",
+    lockX: true
   }}
   options2={{
     size: 400,
-    color: "red"
+    color: "red",
+    lockY: true
   }}
 />
 ```
