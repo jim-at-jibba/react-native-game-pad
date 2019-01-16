@@ -1,6 +1,6 @@
 {
   "name": "react-native-game-pad",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A game pad component for React Native.",
   "main": "index.js",
   "scripts": {
