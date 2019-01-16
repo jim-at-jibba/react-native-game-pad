@@ -3,10 +3,13 @@ import { StyleSheet, View, WebView } from "react-native";
 import PropTypes from "prop-types";
 
 const js = (options, options2) => {
+  console.log("OPTIONS", options);
   let string = `
     var joystick = nipplejs.create({
       zone: document.getElementById('zone_joystick'),
       color: "${options.color}",
+      lockX: ${options.lockX},
+      lockY: ${options.lockY},
       mode: '${options.mode}',
           size: ${options.size},
           position: {
@@ -19,16 +22,18 @@ const js = (options, options2) => {
     var joystick2 = nipplejs.create({
       zone: document.getElementById('zone_joystick2'),
       color: "${options2.color}",
+      lockX: ${options2.lockX},
+      lockY: ${options2.lockY},
       mode: '${options2.mode}',
-          size: ${options2.size},
-          position: {
-            left: "${options2.position.left}",
-            top: "${options2.position.top}"
-          },
+      size: ${options2.size},
+      position: {
+        left: "${options2.position.left}",
+        top: "${options2.position.top}"
+      },
     });
 
     joystick.on('start', function(evt, data) {
-      let dataToReturn = { type: "onLeftStart", event: evt.type, data }
+      let dataToReturn = { type: "leftOnStart", event: evt.type, data }
       window.postMessage(JSON.stringify(dataToReturn));
     })
 
@@ -177,8 +182,19 @@ class RNGamePadDual extends React.Component {
   }
 
   render() {
-    let { color: c1 = "green", size: s1 = 200 } = this.props.options;
-    let { color: c2 = "red", size: s2 = 200 } = this.props.options2;
+    let {
+      color: c1 = "green",
+      size: s1 = 200,
+      lockX: lockX1 = false,
+      lockY: lockY1 = false
+    } = this.props.options;
+
+    let {
+      color: c2 = "red",
+      size: s2 = 200,
+      lockX: lockX2 = false,
+      lockY: lockY2 = false
+    } = this.props.options2;
     console.log("PROPS", this.props);
 
     var options = {
@@ -188,7 +204,9 @@ class RNGamePadDual extends React.Component {
       position: {
         left: "50%",
         top: "50%"
-      }
+      },
+      lockX: lockX1,
+      lockY: lockY1
     };
 
     var options2 = {
@@ -198,7 +216,9 @@ class RNGamePadDual extends React.Component {
       position: {
         left: "50%",
         top: "50%"
-      }
+      },
+      lockX: lockX2,
+      lockY: lockY2
     };
     return (
       <View style={{ flex: 1, flexDirection: "row" }}>

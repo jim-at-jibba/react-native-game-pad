@@ -188,7 +188,7 @@ You can also listen to specific plain direction like :
 * [ ] Allow different types of joystick. Currently on `static` is supported
 * [ ] Break example in to multiple screens
 * [ ] Add test suite
-* [ ] Add X and Y locks
+* [x] Add X and Y locks
 
 ## License
 
