@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View } from "react-native";
 import RNGamePad from "react-native-game-pad";
 
-export default class App extends Component<Props> {
+export default class App extends Component {
   handleOnStart = (evt, data) => {
     console.log("onStart", evt, data);
   };
@@ -83,9 +82,14 @@ export default class App extends Component<Props> {
         buttonAColor="red"
         onButtonBPress={this.handleButtonBPress}
         buttonBColor="green"
+        dualJoystick={true}
         options={{
-          size: 400,
+          size: 200,
           color: "blue"
+        }}
+        options2={{
+          size: 200,
+          color: "red"
         }}
       />
     );
