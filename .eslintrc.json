@@ -5,11 +5,16 @@
     "node": true,
     "es6": true
   },
+  "globals": {
+    "React": true,
+    "_": true
+  },
   "plugins": ["prettier"],
   "extends": ["standard", "prettier", "plugin:react/recommended"],
   "parserOptions": {
     "sourceType": "module"
   },
+  "parser": "babel-eslint",
   "rules": {
     "no-unused-vars": [
       "error",
