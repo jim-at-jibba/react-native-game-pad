@@ -1,173 +1,174 @@
-import React from "react";
-import { StyleSheet, View, WebView } from "react-native";
 import PropTypes from "prop-types";
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { WebView } from "react-native-webview";
 
 const js = (options, options2) => {
-  console.log("OPTIONS", options);
   let string = `
-    var joystick = nipplejs.create({
-      zone: document.getElementById('zone_joystick'),
-      color: "${options.color}",
-      lockX: ${options.lockX},
-      lockY: ${options.lockY},
-      mode: '${options.mode}',
-          size: ${options.size},
-          position: {
-            left: "${options.position.left}",
-            top: "${options.position.top}"
-          },
-    });
+    setTimeout(() => {
+      var joystick = nipplejs.create({
+        zone: document.getElementById('zone_joystick'),
+        color: "${options.color}",
+        lockX: ${options.lockX},
+        lockY: ${options.lockY},
+        mode: '${options.mode}',
+            size: ${options.size},
+            position: {
+              left: "${options.position.left}",
+              top: "${options.position.top}"
+            },
+      });
 
 
-    var joystick2 = nipplejs.create({
-      zone: document.getElementById('zone_joystick2'),
-      color: "${options2.color}",
-      lockX: ${options2.lockX},
-      lockY: ${options2.lockY},
-      mode: '${options2.mode}',
-      size: ${options2.size},
-      position: {
-        left: "${options2.position.left}",
-        top: "${options2.position.top}"
-      },
-    });
+      var joystick2 = nipplejs.create({
+        zone: document.getElementById('zone_joystick2'),
+        color: "${options2.color}",
+        lockX: ${options2.lockX},
+        lockY: ${options2.lockY},
+        mode: '${options2.mode}',
+        size: ${options2.size},
+        position: {
+          left: "${options2.position.left}",
+          top: "${options2.position.top}"
+        },
+      });
 
-    joystick.on('start', function(evt, data) {
-      let dataToReturn = { type: "leftOnStart", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick.on('start', function(evt, data) {
+        let dataToReturn = { type: "leftOnStart", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
-    joystick.on('end', function(evt, data) {
-      let dataToReturn = { type: "onLeftEnd", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
-
-
-    joystick.on('move', function(evt, data) {
-      let dataToReturn = { type: "onLeftMove", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick.on('end', function(evt, data) {
+        let dataToReturn = { type: "onLeftEnd", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
 
-    joystick.on('dir', function(evt, data) {
-      let dataToReturn = { type: "onLeftDir", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick.on('move', function(evt, data) {
+        let dataToReturn = { type: "onLeftMove", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
 
-    joystick.on('dir:up', function(evt, data) {
-      let dataToReturn = { type: "onLeftDirUp", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
-
-    joystick.on('dir:down', function(evt, data) {
-      let dataToReturn = { type: "onLeftDirDown", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
-
-    joystick.on('dir:left', function(evt, data) {
-      let dataToReturn = { type: "onLeftDirLeft", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
-
-    joystick.on('dir:right', function(evt, data) {
-      let dataToReturn = { type: "onLeftDirRight", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
-
-    joystick.on('plain', function(evt, data) {
-      let dataToReturn = { type: "onLeftPlane", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
-
-    joystick.on('plain:up', function(evt, data) {
-      let dataToReturn = { type: "onLeftPlaneUp", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
-
-    joystick.on('plain:down', function(evt, data) {
-      let dataToReturn = { type: "onLeftPlaneDown", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
-
-    joystick.on('plain:left', function(evt, data) {
-      let dataToReturn = { type: "onLeftPlaneLeft", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
-
-    joystick.on('plain:right', function(evt, data) {
-      let dataToReturn = { type: "onLeftPlaneRight", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
-
-    joystick2.on('start', function(evt, data) {
-      let dataToReturn = { type: "onRightStart", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
-
-    joystick2.on('end', function(evt, data) {
-      let dataToReturn = { type: "onRightEnd", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick.on('dir', function(evt, data) {
+        let dataToReturn = { type: "onLeftDir", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
 
-    joystick2.on('move', function(evt, data) {
-      let dataToReturn = { type: "onRightMove", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick.on('dir:up', function(evt, data) {
+        let dataToReturn = { type: "onLeftDirUp", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+
+      joystick.on('dir:down', function(evt, data) {
+        let dataToReturn = { type: "onLeftDirDown", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+
+      joystick.on('dir:left', function(evt, data) {
+        let dataToReturn = { type: "onLeftDirLeft", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+
+      joystick.on('dir:right', function(evt, data) {
+        let dataToReturn = { type: "onLeftDirRight", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+
+      joystick.on('plain', function(evt, data) {
+        let dataToReturn = { type: "onLeftPlane", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+
+      joystick.on('plain:up', function(evt, data) {
+        let dataToReturn = { type: "onLeftPlaneUp", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+
+      joystick.on('plain:down', function(evt, data) {
+        let dataToReturn = { type: "onLeftPlaneDown", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+
+      joystick.on('plain:left', function(evt, data) {
+        let dataToReturn = { type: "onLeftPlaneLeft", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+
+      joystick.on('plain:right', function(evt, data) {
+        let dataToReturn = { type: "onLeftPlaneRight", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+
+      joystick2.on('start', function(evt, data) {
+        let dataToReturn = { type: "onRightStart", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+
+      joystick2.on('end', function(evt, data) {
+        let dataToReturn = { type: "onRightEnd", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
 
-    joystick2.on('dir', function(evt, data) {
-      let dataToReturn = { type: "onRightDir", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick2.on('move', function(evt, data) {
+        let dataToReturn = { type: "onRightMove", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
 
-    joystick2.on('dir:up', function(evt, data) {
-      let dataToReturn = { type: "onRightDirUp", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick2.on('dir', function(evt, data) {
+        let dataToReturn = { type: "onRightDir", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
-    joystick2.on('dir:down', function(evt, data) {
-      let dataToReturn = { type: "onRightDirDown", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
 
-    joystick2.on('dir:left', function(evt, data) {
-      let dataToReturn = { type: "onRightDirLeft", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick2.on('dir:up', function(evt, data) {
+        let dataToReturn = { type: "onRightDirUp", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
-    joystick2.on('dir:right', function(evt, data) {
-      let dataToReturn = { type: "onRightDirRight", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick2.on('dir:down', function(evt, data) {
+        let dataToReturn = { type: "onRightDirDown", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
-    joystick2.on('plain', function(evt, data) {
-      let dataToReturn = { type: "onRightPlane", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick2.on('dir:left', function(evt, data) {
+        let dataToReturn = { type: "onRightDirLeft", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
-    joystick2.on('plain:up', function(evt, data) {
-      let dataToReturn = { type: "onRightPlaneUp", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick2.on('dir:right', function(evt, data) {
+        let dataToReturn = { type: "onRightDirRight", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
-    joystick2.on('plain:down', function(evt, data) {
-      let dataToReturn = { type: "onRightPlaneDown", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick2.on('plain', function(evt, data) {
+        let dataToReturn = { type: "onRightPlane", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
-    joystick2.on('plain:left', function(evt, data) {
-      let dataToReturn = { type: "onRightPlaneLeft", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick2.on('plain:up', function(evt, data) {
+        let dataToReturn = { type: "onRightPlaneUp", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
-    joystick2.on('plain:right', function(evt, data) {
-      let dataToReturn = { type: "onRightPlaneRight", event: evt.type, data }
-      window.postMessage(JSON.stringify(dataToReturn));
-    })
+      joystick2.on('plain:down', function(evt, data) {
+        let dataToReturn = { type: "onRightPlaneDown", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
 
+      joystick2.on('plain:left', function(evt, data) {
+        let dataToReturn = { type: "onRightPlaneLeft", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+
+      joystick2.on('plain:right', function(evt, data) {
+        let dataToReturn = { type: "onRightPlaneRight", event: evt.type, data }
+        window.ReactNativeWebView.postMessage(JSON.stringify(dataToReturn));
+      })
+    }, 100)
   `;
 
   return string;
