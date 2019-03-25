@@ -24,8 +24,12 @@ npm i react-native-game-pad -S
 
 ## Usage
 
+The recent move of WebView to an external package has caused a breaking change. The new [webview](https://github.com/react-native-community/react-native-webview) now needs to be linked. To make this package work the `react-native-webview` package is now a peerDependency.
+
+Please install [react-native-webview](https://github.com/react-native-community/react-native-webview) and follow the install instructions.
+
 Import it into your project. If you want a dual joystick game pad set `dualJoystick={true}` (defaults to single joystick gamepad).
-The methods for dual joystick events are different. Please refer to the list of props below
+The methods for dual joystick events are different. Please refer to the list of props below.
 
 ```
 import RNGamePad from 'react-native-game-pad';
@@ -85,9 +89,9 @@ var options = {
   onRightPlaneRight={this.handleRightOnPlaneRight}
   onButtonAPress={this.handleButtonAPress}
   onButtonAPress={this.handleButtonAPress}
-  buttonAColor="red"
+  buttonAColor='red'
   onButtonBPress={this.handleButtonBPress}
-  buttonBColor="green"
+  buttonBColor='green'
   dualJoystick={true}
   options={{
     size: 400,
@@ -158,10 +162,10 @@ Direction are split with a 45° angle.
 
 You can also listen to specific direction like :
 
-* `onDirUp`
-* `onDirDown`
-* `onDirLeft`
-* `onDirRight`
+- `onDirUp`
+- `onDirDown`
+- `onDirLeft`
+- `onDirRight`
 
 In this configuration only one direction is triggered at a time.
 
@@ -179,18 +183,18 @@ Plain directions are split with a 90° angle.
 
 You can also listen to specific plain direction like :
 
-* `onPlaneUp`
-* `onPlaneDown`
-* `onPlaneLeft`
-* `onPlaneRight`
+- `onPlaneUp`
+- `onPlaneDown`
+- `onPlaneLeft`
+- `onPlaneRight`
 
 ## TODO:
 
-* [x] allow different pad layouts
-* [ ] Allow different types of joystick. Currently on `static` is supported
-* [ ] Break example in to multiple screens
-* [ ] Add test suite
-* [x] Add X and Y locks
+- [x] allow different pad layouts
+- [ ] Allow different types of joystick. Currently on `static` is supported
+- [ ] Break example in to multiple screens
+- [ ] Add test suite
+- [x] Add X and Y locks
 
 ## License
 
