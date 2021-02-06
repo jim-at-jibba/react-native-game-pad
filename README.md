@@ -1,5 +1,11 @@
 # React native game pad (ios + android)
 
+# Notice
+
+This version is not working and should not be used. I plan to update this package by the end of March 2021. 
+This will be a complete rewrite and should improve performance. Sorry for the delay 😀
+
+
 A React Native game pad using [nipplejs](https://github.com/yoannmoinet/nipplejs) for an on-screen joystick
 
 [![NPM](https://nodei.co/npm/react-native-game-pad.png)](https://nodei.co/npm/react-native-game-pad/)
