@@ -44,5 +44,9 @@
       "json",
       "node"
     ]
+  },
+  "dependencies": {
+    "react-native-gesture-handler": "^1.10.1",
+    "react-native-reanimated": "^2.0.0-rc.3"
   }
 }
