@@ -11,7 +11,7 @@ import {
   PanGestureHandlerGestureEvent,
 } from "react-native-gesture-handler";
 
-function DragAndSnap() {
+function RNSingleStick() {
   const translation = {
     x: useSharedValue(0),
     y: useSharedValue(0),
@@ -31,6 +31,7 @@ function DragAndSnap() {
     onActive: (event, ctx) => {
       translation.x.value = ctx.startX + event.translationX;
       translation.y.value = ctx.startY + event.translationY;
+      console.log({ event, ctx });
     },
     onEnd: (_) => {
       translation.x.value = withSpring(0);
@@ -85,4 +86,4 @@ function DragAndSnap() {
     </View>
   );
 }
-export default DragAndSnap;
+export default RNSingleStick;
