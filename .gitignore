@@ -3,3 +3,5 @@ node_modules
 .tern-*
 tags
 tags.*
+lib/*
+yarn-error.*
