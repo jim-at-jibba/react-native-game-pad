@@ -2,7 +2,8 @@
 
 # Notice
 
-This version is not working and should not be used. I plan to update this package by the end of March 2021. 
+This version is not working and should not be used. I plan to update this package by the end of May 2021, but please be aware that I dont have a huge amount of free time at the moment and so there may be delays. 
+
 This will be a complete rewrite and should improve performance. Sorry for the delay 😀
 
 
